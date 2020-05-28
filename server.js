@@ -1,23 +1,16 @@
 const osmosis = require('osmosis');
 
-const searchByImage = (url, callback) => {
-    let results = [];
+const searchByImage = (url, callBack) => {
     osmosis
-        .get('https://www.google.com/searchbyimage?image_url=' + encodeURIComponent(url))
-        .set([
-            osmosis
-                .find('div:nth-child(4) > div > div > div > div > div.r > a')
-                .set({
-                    header: 'h3',
-                    link: '@href',
-                })
-                .data((site) => {
-                    site.header = site.header.replace(/[^\w\s]/gi, '');
-                })
-        ])
-        .data(function (listing) {
+    .get('https://www.google.com/searchbyimage?image_url=' + encodeURIComponent(url))
+    .find('div:nth-child(4) > div > div > div > div > div.r > a')
+    .set({
+      url: '@href',
+      title: 'h3'
+    })
+    .data(function (listing) {
       callBack(listing)
-        })
+    })
 }
 
 module.exports = searchByImage;
