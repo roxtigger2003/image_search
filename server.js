@@ -18,7 +18,8 @@ const searchByImage = async (url) => {
 		])
 		.data((sites) => {
 			results = sites;
-		})
+		});
 	return results;
+}
 
 module.exports = searchByImage;
