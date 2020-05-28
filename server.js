@@ -2,6 +2,7 @@ const osmosis = require('osmosis');
 
 const searchByImage = async (url) => {
 	let results = [];
+	
 	await osmosis
 		.get('https://www.google.com/searchbyimage?image_url=' + encodeURIComponent(url))
 		.set([
@@ -17,8 +18,7 @@ const searchByImage = async (url) => {
 		])
 		.data((sites) => {
 			results = sites;
-		}).catch(error => console.log(error));
+		})
 	return results;
-}
 
 module.exports = searchByImage;
