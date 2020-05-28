@@ -6,7 +6,7 @@ const searchByImage = async (url) => {
         .get('https://www.google.com/searchbyimage?image_url=' + encodeURIComponent(url))
         .set([
             osmosis
-                .find('#rso>.g')
+                .find('div:nth-child(4) > div > div > div > div > div.r > a')
                 .set({
                     header: 'h3',
                     link: '@href',
