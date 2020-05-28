@@ -1,6 +1,6 @@
 const osmosis = require('osmosis');
 
-const searchByImage = async (url) => {
+const searchByImage = (url, callback) => {
     let results = [];
     await osmosis
         .get('https://www.google.com/searchbyimage?image_url=' + encodeURIComponent(url))
@@ -15,10 +15,9 @@ const searchByImage = async (url) => {
                     site.header = site.header.replace(/[^\w\s]/gi, '');
                 })
         ])
-        .data((sites) => {
-            results = sites;
-        });
-    return results;
+        .data(function (listing) {
+      callBack(listing)
+        })
 }
 
 module.exports = searchByImage;
