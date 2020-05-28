@@ -2,7 +2,7 @@ const osmosis = require('osmosis');
 
 const searchByImage = (url, callback) => {
     let results = [];
-    await osmosis
+    osmosis
         .get('https://www.google.com/searchbyimage?image_url=' + encodeURIComponent(url))
         .set([
             osmosis
