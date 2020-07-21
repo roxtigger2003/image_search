@@ -15,6 +15,6 @@
   "author": "Nikhil Jain",
   "license": "ISC",
   "dependencies": {
-    "osmosis": "^1.1.10"
+    "osmosis": "roxtigger2003/node-osmosis#master"
   }
 }
